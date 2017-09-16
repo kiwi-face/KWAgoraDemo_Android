@@ -99,17 +99,6 @@
 
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/image_filter"
-                    android:layout_width="54dp"
-                    android:layout_height="match_parent"
-                    android:scaleType="center"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:src="@drawable/btn_filter"
-                    android:onClick="onBtnNClicked" />
-
             </RelativeLayout>
 
             <LinearLayout
