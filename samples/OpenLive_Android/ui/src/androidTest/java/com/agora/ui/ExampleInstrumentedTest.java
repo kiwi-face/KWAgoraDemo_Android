@@ -1,4 +1,4 @@
-package com.kiwi.ui;
+package com.agora.ui;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

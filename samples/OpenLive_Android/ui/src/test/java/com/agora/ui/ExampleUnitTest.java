@@ -1,4 +1,4 @@
-package com.kiwi.ui;
+package com.agora.ui;
 
 import org.junit.Test;
 
