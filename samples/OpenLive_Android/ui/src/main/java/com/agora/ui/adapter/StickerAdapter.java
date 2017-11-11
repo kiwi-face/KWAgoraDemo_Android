@@ -21,6 +21,7 @@ import com.agora.tracker.bean.conf.StickerConfig;
 import com.agora.tracker.common.Config;
 import com.agora.tracker.utils.ZipUtils;
 import com.agora.ui.R;
+import com.agora.ui.model.StickerConfigMgr;
 
 import java.io.File;
 import java.io.IOException;
@@ -63,7 +64,7 @@ public class StickerAdapter extends RecyclerView.Adapter<StickerAdapter.ViewHold
 
     private Map<String, String> downloadingStickers = new ConcurrentHashMap();
 
-    private int selectedPos = -1;
+//     private int selectedPos = -1;
 
     private void loadingStart(StickerConfig sticker, String url) {
         downloadingStickers.put(sticker.getName(), url);
@@ -104,8 +105,8 @@ public class StickerAdapter extends RecyclerView.Adapter<StickerAdapter.ViewHold
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_sticker, parent, false);
-        ViewHolder KiwiViewHolder = new ViewHolder(view);
-        return KiwiViewHolder;
+        ViewHolder AGViewHolder = new ViewHolder(view);
+        return AGViewHolder;
     }
 
     @Override
@@ -295,9 +296,11 @@ public class StickerAdapter extends RecyclerView.Adapter<StickerAdapter.ViewHold
             if (item.isDownloaded() || position == 0) {
                 Log.i("Tracker", "switch sticker,name:" + item.getName());
 
-                notifyItemChanged(selectedPos);
-                selectedPos = position;
-                notifyItemChanged(position);
+//                  notifyItemChanged(selectedPos);
+//                    selectedPos = position;
+                StickerConfigMgr.setSelectedStickerConfig(item);
+                notifyDataSetChanged();
+//                  notifyItemChanged(position);
 
                 onStickerChangeListener.onStickerChanged(item);
                 return;
@@ -353,7 +356,8 @@ public class StickerAdapter extends RecyclerView.Adapter<StickerAdapter.ViewHold
         public void onBindView(StickerConfig item, int postion) {
 
             //选中高亮实现
-            if (selectedPos == postion) {
+            if (item.equals(StickerConfigMgr.getSelectedStickerConfig())) {
+//            if (selectedPos==postion) {
                 mView.setBackgroundResource(R.drawable.sticker_selected);
             } else {
                 mView.setBackgroundResource(R.color.transparent);

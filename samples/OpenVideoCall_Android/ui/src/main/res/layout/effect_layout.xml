@@ -7,19 +7,19 @@
     android:baselineAligned="false"
     android:orientation="vertical">
 
-    <com.agora.ui.widget.AGStickerView
+    <com.agora.ui.widget.StickerView
         android:id="@+id/sticker_view"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:visibility="gone" />
 
-    <com.agora.ui.widget.AGEyeAndThinView
+    <com.agora.ui.widget.EyeAndThinView
         android:id="@+id/eye_thin_view"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:visibility="gone" />
 
-    <com.agora.ui.widget.AGFaceBeauty2View
+    <com.agora.ui.widget.FaceBeauty2View
         android:id="@+id/face_beauty2_view"
         android:layout_width="match_parent"
         android:layout_height="240dp"

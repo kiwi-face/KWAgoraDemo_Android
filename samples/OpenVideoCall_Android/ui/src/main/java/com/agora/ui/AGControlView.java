@@ -15,9 +15,9 @@ import com.blankj.utilcode.utils.Utils;
 import com.agora.tracker.bean.AGFilter;
 import com.agora.ui.adapter.FilterAdapter;
 import com.agora.ui.model.FilterConfigMgr;
-import com.agora.ui.widget.AGEyeAndThinView;
-import com.agora.ui.widget.AGFaceBeauty2View;
-import com.agora.ui.widget.AGStickerView;
+import com.agora.ui.widget.EyeAndThinView;
+import com.agora.ui.widget.FaceBeauty2View;
+import com.agora.ui.widget.StickerView;
 
 /**
  * Created by song.ding on 2017/2/3.
@@ -44,9 +44,9 @@ public class AGControlView extends FrameLayout implements View.OnClickListener {
 
     //特效面板
     private View mEffectView;
-    private com.agora.ui.widget.AGStickerView mStickerView;
-    private com.agora.ui.widget.AGEyeAndThinView mEyeAndThinView;
-    private AGFaceBeauty2View mFaceBeauty2;
+    private com.agora.ui.widget.StickerView mStickerView;
+    private com.agora.ui.widget.EyeAndThinView mEyeAndThinView;
+    private FaceBeauty2View mFaceBeauty2View;
 
     private OnViewEventListener onEventListener;
 
@@ -169,9 +169,9 @@ public class AGControlView extends FrameLayout implements View.OnClickListener {
     private void initEffectView() {
         mEffectView = findViewById(R.id.layout_effect);
 
-        mStickerView = (AGStickerView) findViewById(R.id.sticker_view);
-        mEyeAndThinView = (AGEyeAndThinView) findViewById(R.id.eye_thin_view);
-        mFaceBeauty2 = (AGFaceBeauty2View) findViewById(R.id.face_beauty2_view);
+        mStickerView = (StickerView) findViewById(R.id.sticker_view);
+        mEyeAndThinView = (EyeAndThinView) findViewById(R.id.eye_thin_view);
+        mFaceBeauty2View = (FaceBeauty2View) findViewById(R.id.face_beauty2_view);
 
         ((RadioGroup) findViewById(R.id.bottom_view)).setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -190,8 +190,8 @@ public class AGControlView extends FrameLayout implements View.OnClickListener {
                 }
 
                 if (id == R.id.btn_bar_beauty_second) {
-                    mFaceBeauty2.setVisibility(VISIBLE);
-                    mFaceBeauty2.setOnEventListener(onEventListener);
+                    mFaceBeauty2View.setVisibility(VISIBLE);
+                    mFaceBeauty2View.setOnEventListener(onEventListener);
                     setViewVisual(false, false, true);
                 }
 
@@ -204,7 +204,7 @@ public class AGControlView extends FrameLayout implements View.OnClickListener {
                                boolean skinWhiteSecond) {
         mStickerView.setVisibility(stickerVisual ? VISIBLE : GONE);
         mEyeAndThinView.setVisibility(beautyVisual ? VISIBLE : GONE);
-        mFaceBeauty2.setVisibility(skinWhiteSecond ? VISIBLE : GONE);
+        mFaceBeauty2View.setVisibility(skinWhiteSecond ? VISIBLE : GONE);
     }
 
 }

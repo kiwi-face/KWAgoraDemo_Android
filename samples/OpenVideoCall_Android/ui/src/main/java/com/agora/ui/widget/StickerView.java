@@ -24,7 +24,7 @@ import static com.agora.tracker.bean.conf.StickerConfig.NO_STICKER;
  * Created by song.ding on 2017/2/6.
  */
 
-public class AGStickerView extends FrameLayout implements StickerAdapter.IStickerHandler, StickerAdapter.onStickerChangeListener {
+public class StickerView extends FrameLayout implements StickerAdapter.IStickerHandler, StickerAdapter.onStickerChangeListener {
     private RecyclerView mStickerListView;
     private OnViewEventListener onEventListener;
     private StickerAdapter mStickerAdapter;
@@ -35,7 +35,7 @@ public class AGStickerView extends FrameLayout implements StickerAdapter.ISticke
         this.onEventListener = onEventListener;
     }
 
-    public AGStickerView(Context context, AttributeSet attrs) {
+    public StickerView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, 0);
     }

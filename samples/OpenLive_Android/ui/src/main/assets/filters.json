@@ -75,7 +75,6 @@
       "dir": "kevin",
       "category": "inner"
     },
-
     {
       "name": "skinwhiten",
       "dir": "skinwhiten",
@@ -105,7 +104,7 @@
       "name": "hefe",
       "dir": "hefe",
       "category": "inner"
-    }, 
+    },
     {
       "name": "1977",
       "dir": "1977",
@@ -116,7 +115,6 @@
       "dir": "toaster2",
       "category": "inner"
     },
-
     {
       "name": "happy",
       "dir": "happy",
@@ -136,7 +134,7 @@
       "name": "valencia",
       "dir": "valencia",
       "category": "inner"
-    },   
+    },
     {
       "name": "walden",
       "dir": "walden",
@@ -151,7 +149,7 @@
       "name": "fairytale",
       "dir": "fairytale",
       "category": "inner"
-    },    
+    },
     {
       "name": "blueberry",
       "dir": "blueberry",
@@ -261,7 +259,16 @@
       "name": "sketch",
       "dir": "sketch",
       "category": "inner"
+    },
+    {
+      "name": "lomo",
+      "dir": "lomo",
+      "category": "inner"
+    },
+    {
+      "name": "xproll",
+      "dir": "xproll",
+      "category": "inner"
     }
-
   ]
 }
