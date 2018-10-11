@@ -18,7 +18,7 @@ repositories {
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "27.0.3"
 
     defaultConfig {
         applicationId "io.agora.openvcall"
@@ -27,9 +27,9 @@ android {
         versionCode 18
         versionName "1.13.0"
 
-        jackOptions {
-            enabled true
-        }
+//        jackOptions {
+//            enabled true
+//        }
 
         externalNativeBuild {
             ndkBuild {
@@ -68,18 +68,18 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.3.0'
-    compile 'com.android.support:support-v4:25.3.0'
-    compile 'com.android.support:design:25.3.0'
-    compile 'org.slf4j:slf4j-api:1.7.21'
-    compile 'com.github.tony19:logback-android-core:1.1.1-4'
-    compile('com.github.tony19:logback-android-classic:1.1.1-4') {
-        // workaround issue #73
-        exclude group: 'com.google.android', module: 'android'
-    }
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api 'com.android.support:appcompat-v7:25.3.1'
+    api 'com.android.support:support-v4:25.3.1'
+    api 'com.android.support:design:25.3.1'
+    api 'org.slf4j:slf4j-api:1.7.21'
+//    compile 'com.github.tony19:logback-android-core:1.1.1-4'
+//    compile('com.github.tony19:logback-android-classic:1.1.1-4') {
+//        // workaround issue #73
+//        exclude group: 'com.google.android', module: 'android'
+//    }
 
-    compile project(':ui')
-    compile(name: 'ag-filter', ext: 'aar')
-    compile(name: 'ag-tracker', ext: 'aar')
+    api project(':ui')
+    api(name: 'ag-filter', ext: 'aar')
+    api(name: 'ag-tracker', ext: 'aar')
 }
