@@ -1,29 +1,29 @@
 {
   "buildFiles": [
-    "/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/src/main/cpp/Android.mk",
-    "/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/src/main/cpp/Application.mk"
+    "/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/src/main/cpp/Android.mk",
+    "/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/src/main/cpp/Application.mk"
   ],
   "cleanCommands": [
-    "/Users/shijian/Library/Android/sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/src/main/cpp/Android.mk NDK_APPLICATION_MK\u003d/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/src/main/cpp/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/lib NDK_APPLICATION_MK:\u003dsrc/main/cpp/Application.mk APP_PLATFORM:\u003dandroid-18 clean"
+    "/Users/zhangjingming/Android/sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/src/main/cpp/Android.mk NDK_APPLICATION_MK\u003d/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/src/main/cpp/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/lib NDK_APPLICATION_MK:\u003dsrc/main/cpp/Application.mk APP_PLATFORM:\u003dandroid-18 clean"
   ],
   "libraries": {
     "apm-plugin-video-preprocessing-debug-x86": {
-      "buildCommand": "/Users/shijian/Library/Android/sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/src/main/cpp/Android.mk NDK_APPLICATION_MK\u003d/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/src/main/cpp/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/lib NDK_APPLICATION_MK:\u003dsrc/main/cpp/Application.mk APP_PLATFORM:\u003dandroid-18 /Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/obj/local/x86/libapm-plugin-video-preprocessing.so",
+      "buildCommand": "/Users/zhangjingming/Android/sdk/ndk-bundle/ndk-build NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003d/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/src/main/cpp/Android.mk NDK_APPLICATION_MK\u003d/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/src/main/cpp/Application.mk APP_ABI\u003dx86 NDK_ALL_ABIS\u003dx86 NDK_DEBUG\u003d1 APP_PLATFORM\u003dandroid-16 NDK_OUT\u003d/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/obj NDK_LIBS_OUT\u003d/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/lib NDK_APPLICATION_MK:\u003dsrc/main/cpp/Application.mk APP_PLATFORM:\u003dandroid-18 /Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/obj/local/x86/libapm-plugin-video-preprocessing.so",
       "toolchain": "toolchain-x86",
       "abi": "x86",
       "artifactName": "apm-plugin-video-preprocessing",
       "files": [
         {
-          "src": "/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/src/main/cpp/video_preprocessing_plugin_jni.cpp",
-          "flags": "\"-gcc-toolchain\" \"/Users/shijian/Library/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/darwin-x86_64\" \"-target\" \"i686-none-linux-android\" \"-ffunction-sections\" \"-funwind-tables\" \"-fstack-protector-strong\" \"-fPIC\" \"-Wno-invalid-command-line-argument\" \"-Wno-unused-command-line-argument\" \"-no-canonical-prefixes\" \"-g\" \"-fno-exceptions\" \"-fno-rtti\" \"-O2\" \"-DNDEBUG\" \"-I/Users/shijian/Library/Android/sdk/ndk-bundle/sources/cxx-stl/stlport/stlport\" \"-I/Users/shijian/Library/Android/sdk/ndk-bundle/sources/cxx-stl//gabi++/include\" \"-I/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/src/main/cpp\" \"-DANDROID\" \"-Wa,--noexecstack\" \"-Wformat\" \"-Werror\u003dformat-security\" \"-mstackrealign\" \"-frtti\" \"-std\u003dc++11\" \"-isystem\" \"/Users/shijian/Library/Android/sdk/ndk-bundle/platforms/android-18/arch-x86/usr/include\""
+          "src": "/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/src/main/cpp/video_preprocessing_plugin_jni.cpp",
+          "flags": "-gcc-toolchain /Users/zhangjingming/Android/sdk/ndk-bundle/toolchains/x86-4.9/prebuilt/darwin-x86_64 -target i686-none-linux-android -ffunction-sections -funwind-tables -fstack-protector-strong -fPIC -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -no-canonical-prefixes -g -fno-exceptions -fno-rtti -O2 -DNDEBUG -I/Users/zhangjingming/Android/sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -I/Users/zhangjingming/Android/sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include -I/Users/zhangjingming/Android/sdk/ndk-bundle/sources/android/support/include -I/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/src/main/cpp -std\u003dc++11 -std\u003dc++11 -DANDROID -D__ANDROID_API__\u003d18 -Wa,--noexecstack -Wformat -Werror\u003dformat-security -mstackrealign --sysroot /Users/zhangjingming/Android/sdk/ndk-bundle/sysroot -isystem /Users/zhangjingming/Android/sdk/ndk-bundle/sysroot/usr/include/i686-linux-android"
         }
       ],
-      "output": "/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/obj/local/x86/libapm-plugin-video-preprocessing.so"
+      "output": "/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/build/intermediates/ndkBuild/debug/obj/local/x86/libapm-plugin-video-preprocessing.so"
     }
   },
   "toolchains": {
     "toolchain-x86": {
-      "cppCompilerExecutable": "/Users/shijian/Library/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
+      "cppCompilerExecutable": "/Users/zhangjingming/Android/sdk/ndk-bundle/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++"
     }
   },
   "cFileExtensions": [],

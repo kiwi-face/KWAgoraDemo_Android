@@ -1,14 +1,14 @@
-Executable : /Users/shijian/Library/Android/sdk/ndk-bundle/ndk-build
+Executable : /Users/zhangjingming/Android/sdk/ndk-bundle/ndk-build
 arguments : 
 NDK_PROJECT_PATH=null
-APP_BUILD_SCRIPT=/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/src/main/cpp/Android.mk
-NDK_APPLICATION_MK=/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/src/main/cpp/Application.mk
+APP_BUILD_SCRIPT=/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/src/main/cpp/Android.mk
+NDK_APPLICATION_MK=/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/src/main/cpp/Application.mk
 APP_ABI=armeabi-v7a
 NDK_ALL_ABIS=armeabi-v7a
 NDK_DEBUG=0
 APP_PLATFORM=android-16
-NDK_OUT=/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/build/intermediates/ndkBuild/release/obj
-NDK_LIBS_OUT=/Users/shijian/work/third/Agora_Native_SDK_for_Android_FULL/samples/OpenLive_Android/app/build/intermediates/ndkBuild/release/lib
+NDK_OUT=/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/build/intermediates/ndkBuild/release/obj
+NDK_LIBS_OUT=/Users/zhangjingming/GitHub/kiwi/KWAgoraDemo_Android/samples/OpenLive_Android/app/build/intermediates/ndkBuild/release/lib
 NDK_APPLICATION_MK:=src/main/cpp/Application.mk
 APP_PLATFORM:=android-18
 APP_SHORT_COMMANDS=false
