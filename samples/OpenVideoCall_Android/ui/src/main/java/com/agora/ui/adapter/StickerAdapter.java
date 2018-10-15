@@ -16,6 +16,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.agora.ui.helper.StickerHelper;
 import com.bumptech.glide.Glide;
 import com.agora.tracker.bean.conf.StickerConfig;
 import com.agora.tracker.common.Config;
@@ -230,7 +231,7 @@ public class StickerAdapter extends RecyclerView.Adapter<StickerAdapter.ViewHold
      */
     private String getRealDownloadUrl(StickerConfig sticker) {
         if (null == sticker.getSourceType() || "0".equals(sticker.getSourceType())) {
-            String downloadUrl = sticker.getDownloadUrl(Config.getStickerUrl());
+            String downloadUrl = sticker.getDownloadUrl(StickerHelper.getStickerUrl());
             return downloadUrl;
         } else {
             //可以使用自己的贴纸下载url
@@ -370,7 +371,7 @@ public class StickerAdapter extends RecyclerView.Adapter<StickerAdapter.ViewHold
                 return;
             }
 
-            String thumbUrlPath = Config.getThumbUrl() + item.getThumb();
+            String thumbUrlPath = StickerHelper.getThumbUrl() + item.getThumb();
             Glide.with(mImageView.getContext())
                     .load(thumbUrlPath)
                     .fitCenter()

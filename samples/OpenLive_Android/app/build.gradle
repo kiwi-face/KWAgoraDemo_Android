@@ -12,7 +12,7 @@ repositories {
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "io.agora.openlive"
@@ -30,9 +30,6 @@ android {
             }
         }
 
-        jackOptions {
-            enabled true
-        }
 
         externalNativeBuild {
             ndkBuild {
@@ -51,8 +48,12 @@ android {
     }
 
     buildTypes {
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -68,25 +69,28 @@ android {
             jniLibs.srcDirs = ['src/main/libs']
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
-    compile fileTree(dir: './libs', include: ['*.jar'])
+    implementation fileTree(dir: './libs', include: ['*.jar'])
 
-    compile 'com.android.support:appcompat-v7:25.3.0'
-    compile 'com.android.support:support-v4:25.3.0'
-    compile 'com.android.support:design:25.3.0'
-    compile 'org.slf4j:slf4j-api:1.7.21'
-    compile 'com.github.tony19:logback-android-core:1.1.1-5'
-    compile('com.github.tony19:logback-android-classic:1.1.1-5') {
+    implementation 'com.android.support:appcompat-v7:25.3.1'
+    implementation 'com.android.support:support-v4:25.3.1'
+    implementation 'com.android.support:design:25.3.1'
+    implementation 'org.slf4j:slf4j-api:1.7.21'
+    implementation 'com.github.tony19:logback-android-core:1.1.1-5'
+    implementation('com.github.tony19:logback-android-classic:1.1.1-5') {
         // workaround issue #73
         exclude group: 'com.google.android', module: 'android'
     }
 
-    androidTestCompile 'com.jayway.android.robotium:robotium-solo:5.6.3'
 
-    compile project(':ui')
-    compile(name: 'ag-filter', ext: 'aar')
-    compile(name: 'ag-tracker', ext: 'aar')
+    implementation project(':ui')
+    implementation(name: 'ag-filter', ext: 'aar')
+    implementation(name: 'ag-tracker', ext: 'aar')
 
 }
