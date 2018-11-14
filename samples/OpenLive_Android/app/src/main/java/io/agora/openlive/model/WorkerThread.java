@@ -8,18 +8,19 @@ import android.os.Looper;
 import android.os.Message;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.SurfaceView;
-import android.text.TextUtils;
-import io.agora.common.Constant;
-import io.agora.openlive.R;
-import io.agora.rtc.Constants;
-import io.agora.rtc.RtcEngine;
-import io.agora.rtc.video.VideoCanvas;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+
+import io.agora.openlive.R;
+import io.agora.rtc.Constants;
+import io.agora.rtc.RtcEngine;
+import io.agora.rtc.video.VideoCanvas;
 
 public class WorkerThread extends Thread {
     private final static Logger log = LoggerFactory.getLogger(WorkerThread.class);
@@ -173,7 +174,7 @@ public class WorkerThread extends Thread {
 
         mRtcEngine.setVideoProfile(mEngineConfig.mVideoProfile, true);
 
-        mRtcEngine.setClientRole(cRole, "");
+        mRtcEngine.setClientRole(cRole);
 
         log.debug("configEngine " + cRole + " " + mEngineConfig.mVideoProfile);
     }
