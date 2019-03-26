@@ -23,6 +23,8 @@ struct AgoraServiceContext
 
 class IAgoraService
 {
+protected:
+    virtual ~IAgoraService(){}
 public:
     virtual void release() = 0;
 
@@ -36,9 +38,9 @@ public:
     */
     virtual int initialize(const AgoraServiceContext& context) = 0;
 
-    /** Gets the SDK version number.
+    /** Retrieves the SDK version number.
     * @param build Build number.
-    * @return The current SDK version in the sting format. For example, 2.3.0
+    * @return The current SDK version in the string format. For example, 2.3.0
     */
     virtual const char* getVersion(int* build) = 0;
 
