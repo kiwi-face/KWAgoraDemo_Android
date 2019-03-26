@@ -85,6 +85,8 @@ private:
     pointer_type ptr_;
 };
 class IString {
+protected:
+    virtual ~IString(){}
 public:
     virtual bool empty() const = 0;
     virtual const char* c_str() = 0;
@@ -109,10 +111,10 @@ enum INTERFACE_ID_TYPE
      */
 enum WARN_CODE_TYPE
 {
-  /** 8: The specified view is invalid. It is required to specify a view when using the video call function.
+  /** 8: The specified view is invalid. Specify a view when using the video call function.
   */
     WARN_INVALID_VIEW = 8,
-    /** 16: Failed to initialize the video function, possibly caused by lack of resources. The users cannot see the video while the voice communication is not affected.
+    /** 16: Failed to initialize the video function, possibly caused by a lack of resources. The users cannot see the video while the voice communication is not affected.
     */
     WARN_INIT_VIDEO = 16,
     /** 20: The request is pending, usually due to some module not being ready, and the SDK postponed processing the request.
@@ -121,48 +123,48 @@ enum WARN_CODE_TYPE
     /** 103: No channel resources are available. Maybe because the server cannot allocate any channel resource.
     */
     WARN_NO_AVAILABLE_CHANNEL = 103,
-    /** 104: A timeout when looking up the channel. When joining a channel, the SDK looks up the specified channel. The warning usually occurs when the network condition is too poor to connect to the server.
+    /** 104: A timeout occurs when looking up the channel. When joining a channel, the SDK looks up the specified channel. This warning usually occurs when the network condition is too poor to connect to the server.
     */
     WARN_LOOKUP_CHANNEL_TIMEOUT = 104,
-    /** 105: The server rejected the request to look up the channel. The server cannot process this request or the request is illegal.
+    /** 105: The server rejects the request to look up the channel. The server cannot process this request or the request is illegal.
     */
     WARN_LOOKUP_CHANNEL_REJECTED = 105,
-    /** 106: A timeout when opening the channel. Once the specific channel is found, the SDK opens the channel. The warning usually occurs when the network condition is too poor to connect to the server.
+    /** 106: A timeout occurs when opening the channel. Once the specific channel is found, the SDK opens the channel. This warning usually occurs when the network condition is too poor to connect to the server.
     */
     WARN_OPEN_CHANNEL_TIMEOUT = 106,
-    /** 107: The server rejected the request to open the channel. The server cannot process this request or the request is illegal.
+    /** 107: The server rejects the request to open the channel. The server cannot process this request or the request is illegal.
     */
     WARN_OPEN_CHANNEL_REJECTED = 107,
 
     // sdk: 100~1000
-    /** 111: A timeout when switching the live video.
+    /** 111: A timeout occurs when switching to the live video.
     */
     WARN_SWITCH_LIVE_VIDEO_TIMEOUT = 111,
-    /** 118: A timeout when setting the client role in the broadcast mode.
+    /** 118: A timeout occurs when setting the client role in the live broadcast profile.
     */
     WARN_SET_CLIENT_ROLE_TIMEOUT = 118,
     /** 121: The ticket to open the channel is invalid.
     */
     WARN_OPEN_CHANNEL_INVALID_TICKET = 121,
-    /** 122: Try another server.
+    /** 122: Try connecting to another server.
     */
     WARN_OPEN_CHANNEL_TRY_NEXT_VOS = 122,
-    /** 701: Error in opening the audio mixing.
+    /** 701: An error occurs in opening the audio mixing file.
     */
     WARN_AUDIO_MIXING_OPEN_ERROR = 701,
-    /** 1014: Audio Device Module: A warning in the runtime playback device.
+    /** 1014: Audio Device Module: A warning occurs in the playback device.
     */
     WARN_ADM_RUNTIME_PLAYOUT_WARNING = 1014,
-    /** 1016: Audio Device Module: A warning in the runtime recording device.
+    /** 1016: Audio Device Module: A warning occurs in the recording device.
     */
     WARN_ADM_RUNTIME_RECORDING_WARNING = 1016,
     /** 1019: Audio Device Module: No valid audio data is collected. This warning does not affect the ongoing call.
     */
     WARN_ADM_RECORD_AUDIO_SILENCE = 1019,
-    /** 1020: Audio Device Module: A playback device failure.
+    /** 1020: Audio Device Module: The playback device fails.
     */
     WARN_ADM_PLAYOUT_MALFUNCTION = 1020,
-    /** 1021: Audio Device Module: A recording device failure.
+    /** 1021: Audio Device Module: The recording device fails.
     */
     WARN_ADM_RECORD_MALFUNCTION = 1021,
     /**
@@ -186,7 +188,7 @@ enum WARN_CODE_TYPE
     /** 1052: Audio Device Module: The device is in the glitch state.
     */
     WARN_ADM_GLITCH_STATE = 1052,
-    /** 1053: Audio Device Module: The underlying audio settings have changed.
+    /** 1053: Audio Device Module: The underlying audio settings changed.
     */
     WARN_ADM_IMPROPER_SETTINGS = 1053,
     /**
@@ -204,77 +206,77 @@ enum WARN_CODE_TYPE
 */
 enum ERROR_CODE_TYPE
 {
-  /** 0: No error.
+  /** 0: No error occurs.
   */
     ERR_OK = 0,
     //1~1000
-    /** 1: General error (no specified reason).
+    /** 1: A general error occurs (no specified reason).
     */
     ERR_FAILED = 1,
-    /** 2: Invalid parameter called. For example, the specific channel name includes illegal characters.
+    /** 2: An invalid parameter is used. For example, the specific channel name includes illegal characters.
     */
     ERR_INVALID_ARGUMENT = 2,
     /** 3: The SDK module is not ready. Possible solutions:
 
-     - Check the state of the audio device.
+     - Check the audio device.
      - Check the completeness of the application.
-     - Re-initiate the RTC engine.
+     - Re-initialize the RTC engine.
      */
     ERR_NOT_READY = 3,
     /** 4: The SDK does not support this function.
      */
     ERR_NOT_SUPPORTED = 4,
-    /** 5: The request is rejected. This is for internal SDK internal use only, and it will not return to the application through an API or callback event.
+    /** 5: The request is rejected. This is for internal SDK use only, and it does not return to the application through any method or callback.
      */
     ERR_REFUSED = 5,
     /** 6: The buffer size is not big enough to store the returned data.
      */
     ERR_BUFFER_TOO_SMALL = 6,
-    /** 7: The SDK is not initialized before calling this API.
+    /** 7: The SDK is not initialized before calling this method.
      */
     ERR_NOT_INITIALIZED = 7,
-    /** 9: No permission. This is for internal SDK internal use only, and it will not return to the application through an API or callback event.
+    /** 9: No permission exists. This is for internal SDK use only, and it does not return to the application through any method or callback.
      */
     ERR_NO_PERMISSION = 9,
-    /** 10: An API timeout. Some APIs require the SDK to return the execution result, and this error occurs if the request takes too long (for more than 10 seconds) for the SDK to process.
+    /** 10: An API method timeout occurs. Some API methods require the SDK to return the execution result, and this error occurs if the request takes too long (more than 10 seconds) for the SDK to process.
      */
     ERR_TIMEDOUT = 10,
-    /** 11: The request is canceled. This is for internal SDK internal use only, and it will not return to the application through an API or callback event.
+    /** 11: The request is canceled. This is for internal SDK use only, and it does not return to the application through any method or callback.
      */
     ERR_CANCELED = 11,
-    /** 12: The call frequency is too high. This is for internal SDK internal use only, and it will not return to the application through an API or callback event.
+    /** 12: The method is called too often. This is for internal SDK use only, and it does not return to the application through any method or callback.
      */
     ERR_TOO_OFTEN = 12,
-    /** 13: The SDK failed to bind to the network socket. This is for internal SDK internal use only, and it will not return to the application through an API or callback event.
+    /** 13: The SDK fails to bind to the network socket. This is for internal SDK use only, and it does not return to the application through any method or callback.
      */
     ERR_BIND_SOCKET = 13,
-    /** 14: The network is unavailable. This is for internal SDK internal use only, and it will not return to the application through an API or callback event.
+    /** 14: The network is unavailable. This is for internal SDK use only, and it does not return to the application through any method or callback.
      */
     ERR_NET_DOWN = 14,
-    /** 15: No network buffers available. This is for internal SDK internal use only, and it will not return to the application through an API or callback event.
+    /** 15: No network buffers are available. This is for internal SDK internal use only, and it does not return to the application through any method or callback.
      */
     ERR_NET_NOBUFS = 15,
-    /** 17: The request to join the channel is rejected. This error usually occurs when the user is already in the channel, and still calls the API to join the channel, for example, \ref agora::rtc::IRtcEngine::joinChannel "joinChannel".
+    /** 17: The request to join the channel is rejected. This error usually occurs when the user is already in the channel, and still calls the method to join the channel, for example, \ref agora::rtc::IRtcEngine::joinChannel "joinChannel".
      */
     ERR_JOIN_CHANNEL_REJECTED = 17,
     /** 18: The request to leave the channel is rejected.
 
      This error usually occurs:
 
-     - When the user has left the channel and still calls \ref agora::rtc::IRtcEngine::leaveChannel "leaveChannel" to leave the channel. In this case, please stop calling \ref agora::rtc::IRtcEngine::leaveChannel "leaveChannel".
-     - When the user has not joined the channel and and still calls \ref agora::rtc::IRtcEngine::leaveChannel "leaveChannel" to leave the channel. In this case, no extra operation is needed.
+     - When the user has left the channel and still calls \ref agora::rtc::IRtcEngine::leaveChannel "leaveChannel" to leave the channel. In this case, stop calling \ref agora::rtc::IRtcEngine::leaveChannel "leaveChannel".
+     - When the user has not joined the channel and still calls \ref agora::rtc::IRtcEngine::leaveChannel "leaveChannel" to leave the channel. In this case, no extra operation is needed.
      */
     ERR_LEAVE_CHANNEL_REJECTED = 18,
-    /** 19: Resources have been occupied and cannot be reused.
+    /** 19: Resources are occupied and cannot be reused.
      */
     ERR_ALREADY_IN_USE = 19,
-    /** 20: The SDK gave up the request due to too many requests. This is for internal SDK internal use only, and it will not return to the application through an API or callback event.
+    /** 20: The SDK gives up the request due to too many requests.
      */
     ERR_ABORTED = 20,
     /** 21: In Windows, specific firewall settings can cause the SDK to fail to initialize and crash.
      */
     ERR_INIT_NET_ENGINE = 21,
-    /** 22: The application has taken up too much of the system resources and the SDK has failed to allocate the resources.
+    /** 22: The application uses too much of the system resources and the SDK fails to allocate the resources.
      */
     ERR_RESOURCE_LIMITED = 22,
     /** 101: The specified App ID is invalid. Please try to rejoin the channel with a valid App ID.
@@ -283,16 +285,16 @@ enum ERROR_CODE_TYPE
     /** 102: The specified channel name is invalid. Please try to rejoin the channel with a valid channel name.
      */
     ERR_INVALID_CHANNEL_NAME = 102,
-    /** 109: The Token expired due to one of the following reasons:
+    /** 109: The token expired due to one of the following reasons:
 
-     - Authorized Timestamp expired: The timestamp is represented by the number of seconds elapsed since 1/1/1970. The user can use the Token to access the Agora service within five minutes after the Token is generated. If the user does not access the Agora service after five minutes, this Token will no longer be valid.
-     - Call Expiration Timestamp expired: The timestamp is the exact time when a user can no longer use the Agora service (for example, when a user is forced to leave an ongoing call). When the value is set for the Call Expiration Timestamp, it does not mean that the Token will be expired, but that the user will be kicked out of the channel.
+     - Authorized Timestamp expired: The timestamp is represented by the number of seconds elapsed since 1/1/1970. The user can use the Token to access the Agora service within five minutes after the Token is generated. If the user does not access the Agora service after five minutes, this Token is no longer valid.
+     - Call Expiration Timestamp expired: The timestamp is the exact time when a user can no longer use the Agora service (for example, when a user is forced to leave an ongoing call). When a value is set for the Call Expiration Timestamp, it does not mean that the token will expire, but that the user will be banned from the channel.
      */
     ERR_TOKEN_EXPIRED = 109,
-    /** 110: The Token is invalid due to one of the following reasons:
+    /** 110: The token is invalid due to one of the following reasons:
 
-     - The App Certificate for the project is enabled in Dashboard, but the user is still using the App ID. Once the App Certificate is enabled, the user must use a Token.
-     - The uid field is mandatory, and users must set the same uid when setting the uid parameter when calling \ref agora::rtc::IRtcEngine::joinChannel "joinChannel".
+     - The App Certificate for the project is enabled in Dashboard, but the user is still using the App ID. Once the App Certificate is enabled, the user must use a token.
+     - The uid is mandatory, and users must set the same uid as the one set in the \ref agora::rtc::IRtcEngine::joinChannel "joinChannel" method.
      */
     ERR_INVALID_TOKEN = 110,
     /** 111: The internet connection is interrupted. This applies to the Agora Web SDK only.
@@ -316,31 +318,31 @@ enum ERROR_CODE_TYPE
     /** 117: The data stream transmission timed out.
      */
     ERR_STREAM_MESSAGE_TIMEOUT = 117,
-    /** 119: Switching roles failed. Please try to rejoin the channel.
+    /** 119: Switching roles fail. Please try to rejoin the channel.
      */
     ERR_SET_CLIENT_ROLE_NOT_AUTHORIZED = 119,
-    /** 120: Decryption failed. The user may have used a different encryption password to join the channel. Please check your settings or try rejoining the channel.
+    /** 120: Decryption fails. The user may have used a different encryption password to join the channel. Check your settings or try rejoining the channel.
      */
     ERR_DECRYPTION_FAILED = 120,
     /** 123: The client is banned by the server.
      */
     ERR_CLIENT_IS_BANNED_BY_SERVER = 123,
-    /** 124: Error in the watermark file parameter.
+    /** 124: An error occurs in the watermark file parameter.
      */
     ERR_WATERMARK_PARAM = 124,
-    /** 125: Error in the watermark file path.
+    /** 125: An error occurs in the watermark file path.
      */
     ERR_WATERMARK_PATH = 125,
-    /** 126: Error in the watermark file format.
+    /** 126: An error occurs in the watermark file format.
      */
     ERR_WATERMARK_PNG = 126,
-    /** 127: Error in the watermark file information.
+    /** 127: An error occurs in the watermark file information.
      */
     ERR_WATERMARKR_INFO = 127,
-    /** 128: Error in the watermark file data format.
+    /** 128: An error occurs in the watermark file data format.
      */
     ERR_WATERMARK_ARGB = 128,
-    /** 129: Error in reading the watermark file.
+    /** 129: An error occurs in reading the watermark file.
      */
     ERR_WATERMARK_READ = 129,
     /** 130: Encryption is enabled when the user calls the \ref agora::rtc::IRtcEngine::addPublishStreamUrl "addPublishStreamUrl" method (CDN live streaming does not support encrypted streams).
@@ -351,19 +353,19 @@ enum ERROR_CODE_TYPE
     /**
     */
     ERR_LOGOUT_OTHER = 400,  //
-    /** 401: The user has logged out.
+    /** 401: The user logged out.
      */
     ERR_LOGOUT_USER = 401,  // logout by user
     /** 402: Network failure.
      */
     ERR_LOGOUT_NET = 402,  // network failure
-    /** 403: Logged in with another device.
+    /** 403: Logged in another device.
      */
     ERR_LOGOUT_KICKED = 403,  // login in other device
     /**
      */
     ERR_LOGOUT_PACKET = 404,  //
-    /** 405: The Token has expired.
+    /** 405: The token expired.
      */
     ERR_LOGOUT_TOKEN_EXPIRED = 405,  // token expired
     /**
@@ -452,61 +454,61 @@ enum ERROR_CODE_TYPE
 
 
     //1001~2000
-    /** 1001: Failed to load the media engine.
+    /** 1001: Fails to load the media engine.
      */
     ERR_LOAD_MEDIA_ENGINE = 1001,
-    /** 1002: Failed to start the call after enabling the media engine.
+    /** 1002: Fails to start the call after enabling the media engine.
      */
     ERR_START_CALL = 1002,
-    /** 1003: Failed to start the camera.
+    /** 1003: Fails to start the camera.
      */
     ERR_START_CAMERA = 1003,
-    /** 1004: Failed to start the video rendering module.
+    /** 1004: Fails to start the video rendering module.
      */
     ERR_START_VIDEO_RENDER = 1004,
-    /** 1005: General error on the Audio Device Module (no specified reason). Please check if the audio device is used by other applications, or try joining the channel.
+    /** 1005: A general error occurs in the Audio Device Module (no specified reason). Check if the audio device is used by another application, or try rejoining the channel.
      */
     ERR_ADM_GENERAL_ERROR = 1005,
-    /** 1006: Audio Device Module: Error in using the Java resources.
+    /** 1006: Audio Device Module: An error occurs in using the Java resources.
      */
     ERR_ADM_JAVA_RESOURCE = 1006,
-    /** 1007: Audio Device Module: Error in setting the sampling frequency.
+    /** 1007: Audio Device Module: An error occurs in setting the sampling frequency.
      */
     ERR_ADM_SAMPLE_RATE = 1007,
-    /** 1008: Audio Device Module: Error in initializing the playback device.
+    /** 1008: Audio Device Module: An error occurs in initializing the playback device.
      */
     ERR_ADM_INIT_PLAYOUT = 1008,
-    /** 1009: Audio Device Module: Error in starting the playback device.
+    /** 1009: Audio Device Module: An error occurs in starting the playback device.
      */
     ERR_ADM_START_PLAYOUT = 1009,
-    /** 1010: Audio Device Module: Error in stopping the playback device.
+    /** 1010: Audio Device Module: An error occurs in stopping the playback device.
      */
     ERR_ADM_STOP_PLAYOUT = 1010,
-    /** 1011: Audio Device Module: Error in initializing the recording device.
+    /** 1011: Audio Device Module: An error occurs in initializing the recording device.
      */
     ERR_ADM_INIT_RECORDING = 1011,
-    /** 1012: Audio Device Module: Error in starting the recording device.
+    /** 1012: Audio Device Module: An error occurs in starting the recording device.
      */
     ERR_ADM_START_RECORDING = 1012,
-    /** 1013: Audio Device Module: Error in stopping the recording device.
+    /** 1013: Audio Device Module: An error occurs in stopping the recording device.
      */
     ERR_ADM_STOP_RECORDING = 1013,
-    /** 1015: Audio Device Module: Runtime playback error. Please check the status of your playback device and try rejoining the channel.
+    /** 1015: Audio Device Module: A playback error occurs. Check your playback device and try rejoining the channel.
      */
     ERR_ADM_RUNTIME_PLAYOUT_ERROR = 1015,
-    /** 1017: Audio Device Module: Runtime recording error.
+    /** 1017: Audio Device Module: A recording error occurs.
      */
     ERR_ADM_RUNTIME_RECORDING_ERROR = 1017,
-    /** 1018: Audio Device Module: Failed to record.
+    /** 1018: Audio Device Module: Fails to record.
      */
     ERR_ADM_RECORD_AUDIO_FAILED = 1018,
-    /** 1022: Audio Device Module: Error in initializing the loopback device.
+    /** 1022: Audio Device Module: An error occurs in initializing the loopback device.
      */
     ERR_ADM_INIT_LOOPBACK = 1022,
-    /** 1023: Audio Device Module: Error in starting the loopback device.
+    /** 1023: Audio Device Module: An error occurs in starting the loopback device.
      */
     ERR_ADM_START_LOOPBACK = 1023,
-    /** 1027: Audio Device Module: No recording permission. Please check if the recording permission is granted.
+    /** 1027: Audio Device Module: No recording permission exists. Check if the recording permission is granted.
      */
     ERR_ADM_NO_PERMISSION = 1027,
     ERR_ADM_RECORD_AUDIO_IS_ACTIVE = 1033,
@@ -546,29 +548,29 @@ enum ERROR_CODE_TYPE
     ERR_ADM_WIN_WAVE_INIT_SPEAKER = 1356,
     ERR_ADM_WIN_WAVE_START_RECORDING = 1357,
     ERR_ADM_WIN_WAVE_START_PLAYOUT = 1358,
-    /** 1359: Audio Device Module: No recording device.
+    /** 1359: Audio Device Module: No recording device exists.
      */
     ERR_ADM_NO_RECORDING_DEVICE = 1359,
-    /** 1360: Audio Device Module: No playback device.
+    /** 1360: Audio Device Module: No playback device exists.
      */
     ERR_ADM_NO_PLAYOUT_DEVICE = 1360,
 
     // VDM error code starts from 1500
-    /** 1501: Video Device Module: The camera is not authorized.
+    /** 1501: Video Device Module: The camera is unauthorized.
      */
     ERR_VDM_CAMERA_NOT_AUTHORIZED = 1501,
 
     // VCM error code starts from 1600
-    /** 1600: Video Device Module: Unknown error.
+    /** 1600: Video Device Module: An unknown error occurs.
      */
     ERR_VCM_UNKNOWN_ERROR = 1600,
-    /** 1601: Video Device Module: Error in initializing the video encoder.
+    /** 1601: Video Device Module: An error occurs in initializing the video encoder.
     */
     ERR_VCM_ENCODER_INIT_ERROR = 1601,
-    /** 1602: Video Device Module: Error in encoding.
+    /** 1602: Video Device Module: An error occurs in encoding.
      */
     ERR_VCM_ENCODER_ENCODE_ERROR = 1602,
-    /** 1603: Video Device Module: Error in setting the video encoder.
+    /** 1603: Video Device Module: An error occurs in setting the video encoder.
      */
     ERR_VCM_ENCODER_SET_ERROR = 1603,
 };
@@ -578,7 +580,7 @@ enum LOG_FILTER_TYPE
 {
 /** 0: Do not output any log information. */
     LOG_FILTER_OFF = 0,
-     /** 0x080f: Output all API log information */
+     /** 0x080f: Output all log information. */
     LOG_FILTER_DEBUG = 0x080f,
      /** 0x000f: Output CRITICAL, ERROR, WARNING, and INFO level log information. */
     LOG_FILTER_INFO = 0x000f,

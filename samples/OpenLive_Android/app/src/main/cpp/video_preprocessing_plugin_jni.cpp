@@ -88,7 +88,7 @@ public:
     }
 
     void writeLog(const char *text,...){
-        //LOGE("%s",text);
+//        LOGE("%s",text);
     }
 
 };
